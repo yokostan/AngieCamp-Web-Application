@@ -65,7 +65,7 @@ app.use("/campgrounds", campgroundRoutes);
 app.use("/campgrounds/:id/comments", commentRoutes);
 
 
-app.listen(process.env.POST, process.env.IP, function() {
+app.listen(process.env.POST, function() {
 	console.log("AngieCamp is running!");
 });
 // PORT need to be changed to 3000 for goorm
