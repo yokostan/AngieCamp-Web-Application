@@ -17,19 +17,14 @@ var commentRoutes     = require("./routes/comments"),
 	indexRoutes       = require("./routes/index");
 
 // mongoose.connect(process.env.DATABASEURL, {useNewUrlParser: true});
-// mongoose.connect("mongodb+srv://angela:1996yuziyuzi520@angiecamp-src3c.mongodb.net/test?retryWrites=true&w=majority", { 
-// 	useNewUrlParser: true, 
-// 	useCreateIndex: true
-// }).then(() => {
-// 	console.log("Connected to DB");
-// }).catch(err => {
-// 	console.log("Error: ", err.message);
-// }); 
-
 mongoose.connect(process.env.DATABASEURL, { 
 	useNewUrlParser: true, 
 	useCreateIndex: true
-});
+}).then(() => {
+	console.log("Connected to DB");
+}).catch(err => {
+	console.log("Error: ", err.message);
+}); 
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
