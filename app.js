@@ -60,7 +60,7 @@ app.use("/campgrounds", campgroundRoutes);
 app.use("/campgrounds/:id/comments", commentRoutes);
 
 
-app.listen(3000, function() {
+app.listen(process.env.POST, process.env.IP, function() {
 	console.log("AngieCamp is running!");
 });
 
