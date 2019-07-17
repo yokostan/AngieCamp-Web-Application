@@ -16,15 +16,10 @@ var commentRoutes     = require("./routes/comments"),
 	campgroundRoutes  = require("./routes/campgrounds"),
 	indexRoutes       = require("./routes/index");
 
+var url = process.env.DATABASEURL || "mongodb://localhost:27017/angie_camp";
+
 // mongoose.connect(process.env.DATABASEURL, {useNewUrlParser: true});
-mongoose.connect(process.env.DATABASEURL, { 
-	useNewUrlParser: true, 
-	useCreateIndex: true
-}).then(() => {
-	console.log("Connected to DB");
-}).catch(err => {
-	console.log("Error: ", err.message);
-}); 
+mongoose.connect(url); 
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
