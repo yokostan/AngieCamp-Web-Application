@@ -16,7 +16,7 @@ var commentRoutes     = require("./routes/comments"),
 	campgroundRoutes  = require("./routes/campgrounds"),
 	indexRoutes       = require("./routes/index");
 
-mongoose.connect(process.env.DATABASEURL, {useNewUrlParser: true});
+// mongoose.connect(process.env.DATABASEURL, {useNewUrlParser: true});
 // mongoose.connect("mongodb+srv://angela:1996yuziyuzi520@angiecamp-src3c.mongodb.net/test?retryWrites=true&w=majority", { 
 // 	useNewUrlParser: true, 
 // 	useCreateIndex: true
@@ -25,6 +25,11 @@ mongoose.connect(process.env.DATABASEURL, {useNewUrlParser: true});
 // }).catch(err => {
 // 	console.log("Error: ", err.message);
 // }); 
+
+mongoose.connect(process.env.DATABASEURL, { 
+	useNewUrlParser: true, 
+	useCreateIndex: true
+});
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
@@ -63,4 +68,5 @@ app.use("/campgrounds/:id/comments", commentRoutes);
 app.listen(process.env.POST, process.env.IP, function() {
 	console.log("AngieCamp is running!");
 });
+// PORT need to be changed to 3000 for goorm
 
